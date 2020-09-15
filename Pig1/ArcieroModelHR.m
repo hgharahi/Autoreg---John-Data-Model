@@ -8,7 +8,7 @@ options = optimset('TolX', 1e-9);
 for i = 1:length(CPP)
     
     F0 = @(x, T_total)EquilibriumHR(x, CPP(i), ATP(i), HR(i), Params);
-    [D(i), fx, ~] = bisection(F0,D0*0.2,D0*1.0,0,optimset('TolX',1e-9));
+    [D(i), fx, ~] = bisection(F0,D0*0.1,D0*1.3,0,options);
     
     T_total(i) = CPP(i)/D(i);    
     
@@ -39,16 +39,4 @@ for i = 1:length(CPP)
     
 end
 
-
-% figure(1);plot(CPP,D/D0);
-% % hold on;
-% figure(2);
-% hold on;
-% plot(D/D0,T_max);
-% plot(D/D0, A.*T_max);
-% 
-% figure(3);
-% plot(T_total,A);
-% 
-% figure(3);
 

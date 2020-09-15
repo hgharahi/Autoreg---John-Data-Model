@@ -1,19 +1,21 @@
-function test = ATPconcentration(test)
+function test = ATPconcentration(test, So)
 
 
 CPP = [40 ,60, 80, 100, 120, 140];
+
+% this pigs does not have blood gas measurements, thus CPP140 is deleted
+% from analysis for now!
+CPP(end) = [];
 
 [Q_endo, Q_mid, Q_epi] = CycleAvg(test,'Q1');
 
 % [V_endo, V_mid, V_epi] = CycleAvg(test,'V1');
 
-Q_total = Q_endo + Q_mid + Q_epi;
 
 for j = 1:length(CPP)
     
     Vc = 0.04;
     J0 = 283.388e3;
-    So = 0.0587;
     Ta = 28.151;
     C0 = 476;
     nH = 2.7;
@@ -42,5 +44,3 @@ for j = 1:length(CPP)
     
 end
 
-    Sa = test.ArtO2Sat(j)/100
-    Sv = test.CvO2Sat(j)/100

@@ -1,4 +1,4 @@
-function test = ATPconcentration(test)
+function test = ATPconcentration(test, So)
 
 
 CPP = [40 ,60, 80, 100, 120, 140];
@@ -16,7 +16,6 @@ for j = 1:length(CPP)
     
     Vc = 0.04;
     J0 = 283.388e3;
-    So = 0.0587;
     Ta = 28.151;
     C0 = 476;
     nH = 2.7;
@@ -45,5 +44,3 @@ for j = 1:length(CPP)
     
 end
 
-    Sa = test.ArtO2Sat(j)/100
-    Sv = test.CvO2Sat(j)/100
